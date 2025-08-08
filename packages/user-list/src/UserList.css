@@ -1,0 +1,234 @@
+.user-list {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+
+  .search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+  }
+
+  .results-info {
+    color: #6b7280;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+    font-size: 16px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .user-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+
+  .table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 150px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .header-cell {
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 150px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  .table-row:hover {
+    background-color: #f9fafb;
+  }
+
+  .table-row:last-child {
+    border-bottom: none;
+  }
+
+  .table-cell {
+    padding: 12px 16px;
+    color: #374151;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .actions-cell {
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  .view-btn {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  .view-btn:hover {
+    background-color: #2563eb;
+  }
+
+  .edit-btn {
+    background-color: #10b981;
+    color: white;
+  }
+
+  .edit-btn:hover {
+    background-color: #059669;
+  }
+
+  .delete-btn {
+    background-color: #ef4444;
+    color: white;
+  }
+
+  .delete-btn:hover {
+    background-color: #dc2626;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 20px 0;
+  }
+
+  .pagination-btn {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    color: #374151;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.15s ease-in-out;
+  }
+
+  .pagination-btn:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+  }
+
+  .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pagination-btn.active {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+  }
+
+  .pagination-ellipsis {
+    padding: 8px 4px;
+    color: #6b7280;
+  }
+
+  @media (max-width: 768px) {
+    .user-list-header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .search-container {
+      max-width: none;
+    }
+
+    .table-header,
+    .table-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .header-cell,
+    .table-cell {
+      padding: 8px 12px;
+    }
+
+    .table-header {
+      display: none;
+    }
+
+    .table-row {
+      display: block;
+      padding: 16px;
+      margin-bottom: 8px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-cell {
+      display: block;
+      padding: 4px 0;
+    }
+
+    .table-cell:before {
+      content: attr(data-label);
+      font-weight: 600;
+      margin-right: 8px;
+      color: #6b7280;
+    }
+  }
