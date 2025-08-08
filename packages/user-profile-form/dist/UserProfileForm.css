@@ -1,0 +1,179 @@
+.user-profile-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .user-profile-form label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .user-profile-form input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  .user-profile-form input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .user-profile-form input:read-only {
+    background-color: #f9fafb;
+    color: #6b7280;
+  }
+  
+  .user-profile-form input.error {
+    border-color: #ef4444;
+  }
+  
+  .error-text {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  .addresses-section {
+    margin-top: 24px;
+  }
+  
+  .addresses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .addresses-header h3 {
+    margin: 0;
+    color: #374151;
+  }
+  
+  .address-block {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #f9fafb;
+  }
+  
+  .address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .address-header h4 {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .add-address-btn, .remove-address-btn {
+    padding: 6px 12px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .remove-address-btn {
+    background-color: #ef4444;
+  }
+  
+  .add-address-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .remove-address-btn:hover {
+    background-color: #dc2626;
+  }
+  
+  .form-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .submit-btn, .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  .submit-btn {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .submit-btn:hover:not(:disabled) {
+    background-color: #059669;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .cancel-btn {
+    background-color: #6b7280;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #4b5563;
+  }
+  
+  @media (max-width: 768px) {
+    .user-profile-form {
+      padding: 16px;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  
+    .addresses-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+  
+    .form-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .submit-btn, .cancel-btn {
+      width: 100%;
+    }
+  }

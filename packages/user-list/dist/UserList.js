@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useState, useMemo } from 'react';
-import "./UserList.css";
+import './UserList.css';
 var UserList = function (_a) {
     var users = _a.users, role = _a.role, onEdit = _a.onEdit, onView = _a.onView, onDelete = _a.onDelete, _b = _a.searchPlaceholder, searchPlaceholder = _b === void 0 ? 'Search users by name or email...' : _b, _c = _a.itemsPerPage, itemsPerPage = _c === void 0 ? 10 : _c;
     var _d = useState(''), searchTerm = _d[0], setSearchTerm = _d[1];

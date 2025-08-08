@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { UserListProps, User, PaginationInfo } from './types';
-import "./UserList.css"
+import './UserList.css';
 
 const UserList: React.FC<UserListProps> = ({
   users,

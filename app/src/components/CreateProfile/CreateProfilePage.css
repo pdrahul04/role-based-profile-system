@@ -1,0 +1,52 @@
+.create-profile-page {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .page-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+  }
+
+  .page-description {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .form-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .create-profile-page {
+      padding: 16px;
+    }
+
+    .page-header h1 {
+      font-size: 24px;
+    }
+
+    .form-container {
+      padding: 20px;
+    }
+  }
