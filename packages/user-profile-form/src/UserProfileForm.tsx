@@ -87,6 +87,24 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
         addr.id === addressId ? { ...addr, [field]: value } : addr
       )
     }));
+
+    // Clear address field error when user starts typing
+    if (errors.addresses?.[addressId]?.[field]) {
+      const newAddressErrors = { ...errors.addresses };
+      const addressError = { ...newAddressErrors[addressId] };
+      delete addressError[field];
+      
+      if (Object.keys(addressError).length === 0) {
+        delete newAddressErrors[addressId];
+      } else {
+        newAddressErrors[addressId] = addressError;
+      }
+      
+      setErrors(prev => ({
+        ...prev,
+        addresses: Object.keys(newAddressErrors).length > 0 ? newAddressErrors : undefined
+      }));
+    }
   };
 
   const addAddress = () => {
@@ -103,6 +121,16 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
         ...prev,
         addresses: prev.addresses.filter(addr => addr.id !== addressId)
       }));
+      
+      // Remove errors for the removed address
+      if (errors.addresses?.[addressId]) {
+        const newAddressErrors = { ...errors.addresses };
+        delete newAddressErrors[addressId];
+        setErrors(prev => ({
+          ...prev,
+          addresses: Object.keys(newAddressErrors).length > 0 ? newAddressErrors : undefined
+        }));
+      }
     }
   };
 

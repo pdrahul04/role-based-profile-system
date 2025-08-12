@@ -129,18 +129,39 @@ var UserProfileForm = function (_a) {
         }
     };
     var handleAddressChange = function (addressId, field, value) {
+        var _a, _b;
         setFormData(function (prev) { return (__assign(__assign({}, prev), { addresses: prev.addresses.map(function (addr) {
                 var _a;
                 return addr.id === addressId ? __assign(__assign({}, addr), (_a = {}, _a[field] = value, _a)) : addr;
             }) })); });
+        // Clear address field error when user starts typing
+        if ((_b = (_a = errors.addresses) === null || _a === void 0 ? void 0 : _a[addressId]) === null || _b === void 0 ? void 0 : _b[field]) {
+            var newAddressErrors_1 = __assign({}, errors.addresses);
+            var addressError = __assign({}, newAddressErrors_1[addressId]);
+            delete addressError[field];
+            if (Object.keys(addressError).length === 0) {
+                delete newAddressErrors_1[addressId];
+            }
+            else {
+                newAddressErrors_1[addressId] = addressError;
+            }
+            setErrors(function (prev) { return (__assign(__assign({}, prev), { addresses: Object.keys(newAddressErrors_1).length > 0 ? newAddressErrors_1 : undefined })); });
+        }
     };
     var addAddress = function () {
         var newId = Date.now().toString();
         setFormData(function (prev) { return (__assign(__assign({}, prev), { addresses: __spreadArray(__spreadArray([], prev.addresses, true), [{ id: newId, street: '', city: '', state: '', zipCode: '' }], false) })); });
     };
     var removeAddress = function (addressId) {
+        var _a;
         if (formData.addresses.length > 1) {
             setFormData(function (prev) { return (__assign(__assign({}, prev), { addresses: prev.addresses.filter(function (addr) { return addr.id !== addressId; }) })); });
+            // Remove errors for the removed address
+            if ((_a = errors.addresses) === null || _a === void 0 ? void 0 : _a[addressId]) {
+                var newAddressErrors_2 = __assign({}, errors.addresses);
+                delete newAddressErrors_2[addressId];
+                setErrors(function (prev) { return (__assign(__assign({}, prev), { addresses: Object.keys(newAddressErrors_2).length > 0 ? newAddressErrors_2 : undefined })); });
+            }
         }
     };
     var handleSubmit = function (e) { return __awaiter(void 0, void 0, void 0, function () {

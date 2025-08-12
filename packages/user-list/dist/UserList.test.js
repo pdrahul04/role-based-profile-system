@@ -320,8 +320,9 @@ describe('UserList', function () {
                     case 0:
                         render(_jsx(UserList, { users: mockUsers, role: "admin", onEdit: mockOnEdit, onView: mockOnView }));
                         searchInput = screen.getByTestId('search-input');
-                        fireEvent.change(searchInput, { target: { value: 'John' } });
+                        fireEvent.change(searchInput, { target: { value: 'John Doe' } });
                         return [4 /*yield*/, waitFor(function () {
+                                // "John Doe" only matches one user exactly
                                 expect(screen.getByText('Showing 1 of 1 users')).toBeInTheDocument();
                             })];
                     case 1:

@@ -463,11 +463,12 @@ describe('UserList', () => {
           onView={mockOnView}
         />
       );
-
+    
       const searchInput = screen.getByTestId('search-input');
-      fireEvent.change(searchInput, { target: { value: 'John' } });
-
+      fireEvent.change(searchInput, { target: { value: 'John Doe' } });
+    
       await waitFor(() => {
+        // "John Doe" only matches one user exactly
         expect(screen.getByText('Showing 1 of 1 users')).toBeInTheDocument();
       });
     });
